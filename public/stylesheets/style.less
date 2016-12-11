@@ -1,8 +1,147 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+@import "/bower_components/codemirror/theme/3024-day.css";
+@import "/bower_components/codemirror/theme/3024-night.css";
+@import "/bower_components/codemirror/theme/abcdef.css";
+@import "/bower_components/codemirror/theme/ambiance.css";
+@import "/bower_components/codemirror/theme/base16-dark.css";
+@import "/bower_components/codemirror/theme/bespin.css";
+@import "/bower_components/codemirror/theme/base16-light.css";
+@import "/bower_components/codemirror/theme/blackboard.css";
+@import "/bower_components/codemirror/theme/cobalt.css";
+@import "/bower_components/codemirror/theme/colorforth.css";
+@import "/bower_components/codemirror/theme/dracula.css";
+@import "/bower_components/codemirror/theme/eclipse.css";
+@import "/bower_components/codemirror/theme/elegant.css";
+@import "/bower_components/codemirror/theme/erlang-dark.css";
+@import "/bower_components/codemirror/theme/hopscotch.css";
+@import "/bower_components/codemirror/theme/icecoder.css";
+@import "/bower_components/codemirror/theme/isotope.css";
+@import "/bower_components/codemirror/theme/lesser-dark.css";
+@import "/bower_components/codemirror/theme/liquibyte.css";
+@import "/bower_components/codemirror/theme/material.css";
+@import "/bower_components/codemirror/theme/mbo.css";
+@import "/bower_components/codemirror/theme/mdn-like.css";
+@import "/bower_components/codemirror/theme/midnight.css";
+@import "/bower_components/codemirror/theme/monokai.css";
+@import "/bower_components/codemirror/theme/neat.css";
+@import "/bower_components/codemirror/theme/neo.css";
+@import "/bower_components/codemirror/theme/night.css";
+@import "/bower_components/codemirror/theme/panda-syntax.css";
+@import "/bower_components/codemirror/theme/paraiso-dark.css";
+@import "/bower_components/codemirror/theme/paraiso-light.css";
+@import "/bower_components/codemirror/theme/pastel-on-dark.css";
+@import "/bower_components/codemirror/theme/railscasts.css";
+@import "/bower_components/codemirror/theme/rubyblue.css";
+@import "/bower_components/codemirror/theme/seti.css";
+@import "/bower_components/codemirror/theme/solarized.css";
+@import "/bower_components/codemirror/theme/the-matrix.css";
+@import "/bower_components/codemirror/theme/tomorrow-night-bright.css";
+@import "/bower_components/codemirror/theme/tomorrow-night-eighties.css";
+@import "/bower_components/codemirror/theme/ttcn.css";
+@import "/bower_components/codemirror/theme/twilight.css";
+@import "/bower_components/codemirror/theme/vibrant-ink.css";
+@import "/bower_components/codemirror/theme/xq-dark.css";
+@import "/bower_components/codemirror/theme/xq-light.css";
+@import "/bower_components/codemirror/theme/yeti.css";
+@import "/bower_components/codemirror/theme/zenburn.css";
 
-a {
-  color: #00B7FF;
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: url('../images/background.jpg') no-repeat fixed right top;
+
+  .form-inline .form-group {
+    margin-right: 10px;
+  }
+  .well-primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(66, 139, 202);
+    border-color: rgb(53, 126, 189);
+  }
+  .glyphicon {
+    margin-right: 5px;
+  }
+
+  .card {
+    margin-top: 20px;
+    padding: 30px;
+    background-color: rgba(214, 224, 226, 0.2);
+    -webkit-border-top-left-radius: 5px;
+    -moz-border-top-left-radius: 5px;
+    border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-top-right-radius: 5px;
+    border-top-right-radius: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 25px;
+  }
+  .card-background img {
+    margin-left: -100px;
+    margin-top: -200px;
+    min-width: 130%;
+  }
+  .card.hovercard {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 1);
+
+    .useravatar {
+      position: absolute;
+      top: -20px;
+      left: 0;
+      right: 0;
+    }
+    .useravatar img {
+      width: 100px;
+      height: 100px;
+      max-width: 100px;
+      max-height: 100px;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      border: 5px solid rgba(255, 255, 255, 0.5);
+    }
+    .card-info {
+      position: absolute;
+      bottom: 14px;
+      left: 0;
+      right: 0;
+    }
+    .card-info .card-title {
+      padding: 0 5px;
+      font-size: 28px;
+      line-height: 1;
+      color: #FFFFFF;
+      background-color: rgba(255, 255, 255, 0.1);
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+    }
+    .card-info {
+      overflow: hidden;
+      font-size: 12px;
+      line-height: 20px;
+      color: #737373;
+      text-overflow: ellipsis;
+    }
+    .bottom {
+      padding: 0 20px;
+      margin-bottom: 17px;
+    }
+  }
+  .btn-pref .btn {
+    -webkit-border-radius: 0 !important;
+  }
+  .show-snippet {
+    .CodeMirror {
+      height: auto;
+    }
+  }
+  .CodeMirror {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
 }

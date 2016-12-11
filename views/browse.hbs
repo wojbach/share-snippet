@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row show-snippet">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <br>
+                        <table id="browse_snippets" class="table table-striped table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>Language</th>
+                                <th>Theme</th>
+                                <th>Size (chars)</th>
+                                <th>Tags/Description</th>
+                                <th>Created</th>
+                                <th>Show</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each snippets}}
+                                <tr>
+                                    <td>{{#if mode_label}}{{mode_label}}{{else}}---{{/if}}</td>
+                                    <td>{{#if theme}}{{theme}}{{else}}---{{/if}}</td>
+                                    <td>{{#if size}}{{size}}{{else}}---{{/if}}</td>
+                                    <td>{{#if tags}}{{tags}}{{else}}---{{/if}}</td>
+                                    <td>{{#if created}}{{created}}{{else}}---{{/if}}</td>
+                                    <td><a href="snippet/{{id}}">
+                                        <button type="button" class="btn btn-primary">
+                                            <span class="glyphicon glyphicon-search"></span><span class="label">Show</span>
+                                        </button>
+                                    </a>
+                                    </td>
+                                </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,2 +1,76 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="container">
+    <div class="row">
+        <form method="post" class="form" role="form" novalidate>
+            <div class="col-md-12">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="category">
+                                                Code</label>
+                                        <textarea name="code" class="form-control" placeholder="Content" rows="5"
+                                                  id="code"
+                                                  required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="category">
+                                                Language</label>
+                                            <select name="mode" onchange="selectMode();" class="form-control" id="mode">
+                                                {{#each modes}}
+                                                    <option value="{{this}}" data-label="{{@key}}">{{@key}}</option>
+                                                {{/each}}
+                                            </select>
+                                            <input type="hidden" name="mode_label" id="mode_label" value="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="theme">
+                                                Theme</label>
+                                            <select name="theme" onchange="selectTheme();" class="form-control"
+                                                    id="theme">
+                                                {{#each themes}}
+                                                    <option value="{{this}}">{{this}}</option>
+                                                {{/each}}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="tags">
+                                                Additional data</label>
+                                            <input name="tags" type="text" class="form-control" id="tags"
+                                                   placeholder="description/tags"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="tags">
+                                            Save when it's done</label>
+                                        <div class="well well-sm well-primary form-inline">
+                                            <div class="form-group">
+                                                <select name="type" class="form-control">
+                                                    <option value="0">Public</option>
+                                                    <option value="1">Private (non-listed)</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-success">
+                                                    <span class="glyphicon glyphicon-floppy-disk"></span>Save
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

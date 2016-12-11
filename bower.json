@@ -1,0 +1,26 @@
+{
+  "name": "share-snippet",
+  "version": "0.0.1",
+  "description": "Self-hosted script to share Your code listings with collaborators, etc.",
+  "main": "./bin/www",
+  "authors": [
+    "Wojciech Bachur <wojbach@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/wojbach/share-snippet",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.3.7",
+    "codemirror": "^5.21.0",
+    "open-sans-fontface": "1.4.2",
+    "datatables.net": "^1.10.13",
+    "datatables.net-bs": "^1.10.13",
+    "clipboard": "^1.5.15"
+  }
+}

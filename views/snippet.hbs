@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="row show-snippet">
+        <form method="post" class="form" role="form" novalidate>
+            <div class="col-md-12">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="category">
+                                                Language</label>
+                                            <select disabled="disabled" name="mode" class="form-control" id="mode">
+                                                <option value="{{snippet.mode}}"
+                                                        data-label="{{snippet.mode_label}}">{{snippet.mode_label}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="theme">
+                                                Theme</label>
+                                            <select disabled="disabled" name="theme" class="form-control"
+                                                    id="theme">
+                                                <option value="{{snippet.theme}}">{{snippet.theme}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="tags">
+                                                Additional data</label>
+                                            <input name="tags" disabled="disabled" type="text" class="form-control"
+                                                   id="tags" value="{{snippet.tags}}"
+                                                   placeholder="description/tags"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="tags">
+                                            Access and actions</label>
+                                        <div class="well well-sm well-primary form-inline">
+                                            <div class="form-group">
+                                                <select disabled="disabled" name="type" class="form-control">
+                                                    <option{{#if snippet.type}}{{else}} selected="selected"{{/if}}
+                                                                                        value="0">Public
+                                                    </option>
+                                                    <option{{#if snippet.type}} selected="selected"{{else}}{{/if}}
+                                                                                value="1">Private (non-listed)
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <button class="btn btn-info">
+                                                    <span class="glyphicon glyphicon-random"></span><span class="label">Fork</span>
+                                                </button>
+                                                <button class="copy btn btn-warning"
+                                                        data-clipboard-text="{{fullUrl}}/snippet/{{snippet.id}}">
+                                                    <span class="glyphicon glyphicon-share"></span><span class="label">Copy url</span>
+                                                </button>
+                                                <button class="copy btn btn-success btn-md"
+                                                        data-clipboard-text="{{snippet.code}}">
+                                                    <span class="glyphicon glyphicon-copy"></span><span class="label">Copy code</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="category">
+                                                Code</label>
+                                            <small class="pull-right">Created at {{snippet.created}} </small>
+                                        <textarea name="code" class="form-control" placeholder="Content" rows="5"
+                                                  id="code">{{snippet.code}}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
