@@ -1,7 +1,7 @@
 (function (window, $) {
     "use strict";
 
-    if($('#code').length) {
+    if ($('#code').length) {
         CodeMirror.modeURL = "/bower_components/codemirror/mode/%N/%N.js";
         var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
             lineNumbers: true,
@@ -21,7 +21,6 @@
         var modeInput = document.getElementById("mode");
 
         window.selectMode = function (label) {
-            label = label || $(modeInput).find(':selected').attr('data-label');
             var mode = $(modeInput).find('[data-label="' + label + '"]').val();
             editor.setOption("mode", mode);
             CodeMirror.autoLoadMode(editor, mode);
@@ -29,18 +28,22 @@
             window.storePreferences("mode", label);
         };
 
+        window.selectModeByValue = function (label) {
+            label = label || $(modeInput).find(':selected').attr('data-label');
+            window.selectMode(label);
+        };
+
         window.loadCMPreferences = function () {
-            var theme = window.getPreferences('theme');
+            var theme = $('#code').data('theme') || window.getPreferences('theme');
             if (theme) {
-                window.selectTheme(window.getPreferences('theme'));
+                window.selectTheme(theme);
             }
 
-            var mode = window.getPreferences('mode');
+            var mode = $('#mode').data('value') || window.getPreferences('mode');
             if (mode) {
                 window.selectMode(mode);
             }
         };
-
 
         window.storePreferences = function (key, value) {
             if (typeof(Storage) !== "undefined") {
@@ -61,30 +64,45 @@
         };
 
         window.bindCopyButton = function () {
-            if($('.copy').length > 0) {
-                $('form').submit(function(e){
+            if ($('.copy').length > 0) {
+                $('form').submit(function (e) {
                     e.preventDefault();
                 });
                 var clipboard = new Clipboard('.copy');
-                clipboard.on('success', function(e) {
+                clipboard.on('success', function (e) {
                     var originalText = $(e.trigger).find('.label').text();
                     $(e.trigger).find('.label').text('Copied!');
-                    setTimeout(function(){
+                    setTimeout(function () {
                         $(e.trigger).find('.label').text(originalText);
                     }.bind(e), 1000);
                 });
             }
-        }
+        };
+
+        window.bindForkButton = function () {
+            if ($('.fork').length > 0) {
+                $('form').submit(function (e) {
+                    e.preventDefault();
+                });
+                $('.fork').click(function () {
+                    window.location.assign($(this).data('url'));
+                });
+            }
+        };
 
         window.loadCMPreferences();
         window.bindModeLabelGrab();
         window.bindCopyButton();
+        window.bindForkButton();
     }
 
-    window.initDatatables = function() {
-        $('#browse_snippets').DataTable();
-    };
-    window.initDatatables();
-
+    if ($('#browse_snippets').length > 0) {
+        window.initDatatables = function () {
+            $('#browse_snippets').DataTable({
+                "order": [[ 0, "desc" ]]
+            });
+        };
+        window.initDatatables();
+    }
 
 })(window, jQuery);

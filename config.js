@@ -1,5 +1,5 @@
 module.exports = {
-    baseUrl: '/sdasdadsdas/',
+    baseUrl: '/',
     modes: {
         "APL":"apl",
         "PGP":"asciiarmor",

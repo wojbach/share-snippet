@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <form method="post" class="form" role="form" novalidate>
+        <form method="post" class="form" role="form" action="{{baseUrl}}" novalidate>
             <div class="col-md-12">
                 <div class="panel-group" id="accordion">
                     <div class="panel panel-default">
@@ -13,16 +13,16 @@
                                                 Code</label>
                                         <textarea name="code" class="form-control" placeholder="Content" rows="5"
                                                   id="code"
-                                                  required></textarea>
+                                                  required>{{snippet.code}}</textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="category">
+                                            <label for="mode">
                                                 Language</label>
-                                            <select name="mode" onchange="selectMode();" class="form-control" id="mode">
+                                            <select data-value="{{snippet.mode_label}}" name="mode" onchange="selectModeByValue();" class="form-control" id="mode">
                                                 {{#each modes}}
                                                     <option value="{{this}}" data-label="{{@key}}">{{@key}}</option>
                                                 {{/each}}
@@ -32,7 +32,7 @@
                                         <div class="form-group">
                                             <label for="theme">
                                                 Theme</label>
-                                            <select name="theme" onchange="selectTheme();" class="form-control"
+                                            <select data-value="{{snippet.theme}}" name="theme" onchange="selectTheme();" class="form-control"
                                                     id="theme">
                                                 {{#each themes}}
                                                     <option value="{{this}}">{{this}}</option>
@@ -44,16 +44,16 @@
                                         <div class="form-group">
                                             <label for="tags">
                                                 Additional data</label>
-                                            <input name="tags" type="text" class="form-control" id="tags"
+                                            <input name="tags" type="text" class="form-control" id="tags" value="{{snippet.tags}}"
                                                    placeholder="description/tags"/>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="tags">
+                                        <label for="type">
                                             Save when it's done</label>
                                         <div class="well well-sm well-primary form-inline">
                                             <div class="form-group">
-                                                <select name="type" class="form-control">
+                                                <select data-value="{{snippet.value}}" name="type" id="type" class="form-control">
                                                     <option value="0">Public</option>
                                                     <option value="1">Private (non-listed)</option>
                                                 </select>

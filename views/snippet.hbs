@@ -9,11 +9,12 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="category">
+                                            <label for="mode">
                                                 Language</label>
-                                            <select disabled="disabled" name="mode" class="form-control" id="mode">
-                                                <option value="{{snippet.mode}}"
-                                                        data-label="{{snippet.mode_label}}">{{snippet.mode_label}}</option>
+                                            <select disabled="disabled" data-value="{{snippet.mode_label}}" name="mode" class="form-control" id="mode">
+                                                {{#each modes}}
+                                                    <option value="{{this}}" data-label="{{@key}}">{{@key}}</option>
+                                                {{/each}}
                                             </select>
                                         </div>
                                     </div>
@@ -39,11 +40,11 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="tags">
+                                        <label for="type">
                                             Access and actions</label>
                                         <div class="well well-sm well-primary form-inline">
                                             <div class="form-group">
-                                                <select disabled="disabled" name="type" class="form-control">
+                                                <select disabled="disabled" name="type" id="type" class="form-control">
                                                     <option{{#if snippet.type}}{{else}} selected="selected"{{/if}}
                                                                                         value="0">Public
                                                     </option>
@@ -53,8 +54,9 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <button class="btn btn-info">
-                                                    <span class="glyphicon glyphicon-random"></span><span class="label">Fork</span>
+                                                <button data-url="{{fullUrl}}/fork/{{snippet.id}}" class="fork btn btn-info">
+                                                    <span class="glyphicon glyphicon-random"></span><span
+                                                        class="label">Fork</span>
                                                 </button>
                                                 <button class="copy btn btn-warning"
                                                         data-clipboard-text="{{fullUrl}}/snippet/{{snippet.id}}">
@@ -74,8 +76,9 @@
                                             <label for="category">
                                                 Code</label>
                                             <small class="pull-right">Created at {{snippet.created}} </small>
-                                        <textarea name="code" class="form-control" placeholder="Content" rows="5"
-                                                  id="code">{{snippet.code}}</textarea>
+                                            <textarea name="code" data-theme="{{snippet.theme}}" class="form-control"
+                                                      placeholder="Content" rows="5"
+                                                      id="code">{{snippet.code}}</textarea>
                                         </div>
                                     </div>
                                 </div>
